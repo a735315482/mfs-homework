@@ -11,14 +11,32 @@
         ·深圳
 -->
 <html>
-    <head>
-        <title>Pudim的作业5</title>
-    </head>
-    <body>
-        <form action="/getInfo" method="POST" enctype="multipart/form-data" >
-            <div>
-                
-            </div>
-        </form>
-    </body>
+
+<head>
+    <title>Pudim的作业5</title>
+</head>
+
+<body>
+    <form action="/getInfo" method="POST" enctype="multipart/form-data">
+        <div>
+            邮箱:<input type="email" name="email" required />
+        </div>
+        <div>
+            数字：<input type="number" min="0" max="100" step="2" placeholder="0~100偶数" />
+        </div>
+        <div>
+            city:<input list="city">
+            <datalist id="city">
+                <option value="北京">
+                <option value="上海">
+                <option value="广州">
+                <option value="深圳">
+            </datalist>
+        </div>
+        <div>
+            <button type="submit">提交</button>
+        </div>
+    </form>
+</body>
+
 </html>
