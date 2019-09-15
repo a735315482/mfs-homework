@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+    CSS 优先级从高到底是什么样的？请给出的代码证明
+-->
+<html>
+    <body>
+        <title>CSS优先级的代码证明</title>
+        <style>
+            #P01{
+                color:blue;
+            }
+            .p1234{
+                color: yellow;
+            }
+            p{
+                color:red;
+            }
+        </style>
+    </body>
+    <head>  
+        <div>
+            <p id="P01" class="p1234">P1234</p>
+        </div>
+    </head>
+</html>
