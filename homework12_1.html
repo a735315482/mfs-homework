@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>hover下拉操作的实现</title>
+        <style>
+            .item{
+                position: relative;
+            }
+            .item:hover{
+                color: red;
+            }
+            ul{
+                display: none;
+                list-style:none;
+            }
+            .item:hover ul{
+                display: block;
+                position: absolute;
+                top:16px;
+                left:0px;
+                margin: 0px;
+                padding: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <span class="item">
+            导航1
+            <ul>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+            </ul>
+        </span>
+        <span class="item">
+            导航2
+            <ul>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+            </ul>
+        </span>
+    </body>
+</html>
