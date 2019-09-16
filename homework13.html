@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+    请使用雪碧图实现一个按钮，当鼠标 hover 时，切换图片。
+-->
+<html>
+
+<head>
+    <title>Pudim的第13次作业</title>
+    <style>
+        a {
+            display: block;
+            width: 200px;
+            height: 65px;
+            line-height: 65px;
+            background-image: url(./picture/button.png);
+            background-position: 0px 0px;
+        }
+        a:hover {
+            background-position: 0 -66px;
+        }
+        a:active {
+            background-position: 0 -132px;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="button" href="./picture/button.png" ></a>
+</body>
+
+</html>
