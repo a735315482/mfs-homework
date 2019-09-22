@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pudim's 17th</title>
+    <style>
+        .container1 {
+            border: 1px solid black;
+            width: 400px;
+            height: 330px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+        }
+
+        .container2 {
+            border: 1px solid black;
+            width: 170px;
+            height: 170px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            border-radius: 10%;
+        }
+
+        .container3 {
+            border: 1px solid black;
+            width: 170px;
+            height: 170px;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 10%;
+            justify-content: space-between;
+        }
+
+        .container4 {
+            border: 1px solid black;
+            width: 170px;
+            height: 170px;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 10%;
+            justify-content: space-between;
+        }
+
+        .container5 {
+            border: 1px solid black;
+            width: 170px;
+            height: 170px;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 10%;
+            justify-content: space-between;
+            align-content: space-between;
+        }
+
+        .block {
+            display: flex;
+            width: 170px;
+            justify-content: space-between;
+        }
+
+        .block2 {
+            display: flex;
+            width: 170px;
+            justify-content: center;
+        }
+
+        .item1 {
+            height: 100px;
+            text-align: center;
+            background: red;
+        }
+
+        .item1:nth-child(1) {
+            width: 400px;
+        }
+
+        .item1:nth-child(2) {
+            width: 80px;
+        }
+
+        .item1:nth-child(3) {
+            flex-grow: 1;
+            background: yellow;
+        }
+
+        .item1:nth-child(4) {
+            width: 80px;
+        }
+
+        .item1:last-child {
+            width: 400px;
+        }
+
+        .spot {
+            background-color: black;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+        }
+
+        .container3 .spot:nth-child(2) {
+            align-self: flex-end;
+        }
+
+        .container4 .spot:nth-child(3) {
+            align-self: flex-end;
+        }
+
+        .container4 .spot:nth-child(2) {
+            align-self: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="item1">头部</div>
+        <div class="item1">侧边栏1</div>
+        <div class="item1">主内容</div>
+        <div class="item1">侧边栏2</div>
+        <div class="item1">底部</div>
+    </div>
+    <div class="container2">
+        <span class="spot"></span>
+    </div>
+    <div class="container3">
+        <span class="spot"></span>
+        <span class="spot"></span>
+    </div>
+    <div class="container4">
+        <span class="spot"></span>
+        <span class="spot"></span>
+        <span class="spot"></span>
+    </div>
+    <div class="container5">
+        <div class="block">
+            <span class="spot"></span>
+            <span class="spot"></span>
+        </div>
+        <div class="block">
+            <span class="spot"></span>
+            <span class="spot"></span>
+        </div>
+    </div>
+    <div class="container5">
+        <div class="block">
+            <span class="spot"></span>
+            <span class="spot"></span>
+        </div>
+        <div class="block2">
+            <span class="spot"></span>
+        </div>
+        <div class="block">
+            <span class="spot"></span>
+            <span class="spot"></span>
+        </div>
+    </div>
+    <div class="container5">
+        <div class="block">
+            <span class="spot"></span>
+            <span class="spot"></span>
+        </div>
+        <div class="block">
+            <span class="spot"></span>
+            <span class="spot"></span>
+        </div>
+        <div class="block">
+            <span class="spot"></span>
+            <span class="spot"></span>
+        </div>
+
+    </div>
+</body>
+
+</html>
