@@ -1,0 +1,306 @@
+body {
+    margin: 0;
+}
+
+.header-main {
+    background-color: rgb(244, 100, 95);
+    background-image: url(https://www.golaravel.com/assets/images/header-bg.jpg);
+    background-origin: padding-box;
+    background-position-x: 30%;
+    background-position-y: 15%;
+    padding: 62px;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.svg {
+    width: 1140px;
+    height: 120px;
+    margin: 20px 200px 48px;
+}
+
+.header-main h1 {
+    color: white;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 5px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav .link {
+    color: #505050;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 0 21px;
+    margin: 20px 0 20px;
+}
+
+.nav .link:nth-child(2) {
+    font-weight: 700;
+}
+
+.nav .link:hover {
+    color: #f4645f;
+}
+
+.main {
+    background-color: #ebebeb;
+    padding: 35px 15px;
+}
+
+.main-container {
+    max-width: 1140px;
+    margin: 0 auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.content {
+    background: white;
+    width: 67%;
+    margin-bottom: 35px;
+}
+
+.post-title {
+    margin: 0;
+}
+
+.post-meta {
+    text-align: center;
+    padding-top: 14px;
+    font-size: 14px;
+    color: #959595;
+}
+
+.featured-media {
+    margin-top: 30px;
+}
+
+.img {
+    width: 100%;
+}
+
+.post {
+    padding: 35px;
+    margin: 0;
+}
+
+.auther2 {
+    text-decoration: none;
+    color: #f4645f;
+}
+
+.post-title .link {
+    color: #303030;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    display: block;
+}
+
+.post-content {
+    font-size: 18px;
+    font-weight: 400;
+    color: #444443;
+    margin: 30px 0;
+    font-family: Georgia, "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+}
+
+.post-content .link {
+    text-decoration: none;
+    color: #f4645f;
+}
+
+.post-permalink .btn {
+    color: white;
+    text-decoration: none;
+    background-color: #f4645f;
+    padding: 7px 14px;
+    margin: 0;
+    border: 1px solid #f4645f;
+}
+
+.post-permalink .btn:hover {
+    border: 1px solid #303030;
+    background: #303030;
+}
+
+.post-footer {
+    margin-top: 30px;
+    border-top: 1px solid #ebebeb;
+    padding: 21px 0 0;
+}
+
+.aside {
+    height: 500px;
+    width: 30%;
+}
+
+.aside .widget {
+    background: white;
+    margin-bottom: 30px;
+    padding: 21px 30px;
+}
+
+.widget .title {
+    margin: 0;
+    font-weight: 500;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #ebebeb;
+    position: relative;
+    margin-bottom: 21px;
+}
+
+.widget .title::after {
+    content: "";
+    display: block;
+    width: 100px;
+    border-bottom: 1px solid #f4645f;
+    position: absolute;
+    bottom: -1px;
+}
+
+.widget .btn {
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #f4645f;
+    background: #f4645f;
+    color: #fff;
+    padding: 7px 14px;
+    border-radius: 2px;
+    display: block;
+    width: 93%;
+    margin-top: 5px;
+}
+
+.widget .btn:hover {
+    border: 1px solid #303030;
+    background: #303030;
+}
+
+.footer {
+    padding-top: 35px;
+    background-color: rgb(32, 32, 32);
+}
+
+.footer-container {
+    width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.block .widget {
+    width: 300px;
+}
+
+.footer-title {
+    color: white;
+    width: 300px;
+    padding-bottom: 7px;
+    margin-top: 0;
+    margin-bottom: 21px;
+    font-size: 21px;
+    font-weight: 400;
+    border-bottom: 1px solid #303030;
+    position: relative;
+}
+
+.footer-title::after {
+    content: "";
+    display: block;
+    width: 100px;
+    border-bottom: 1px solid #f4645f;
+    position: absolute;
+    bottom: -1px;
+}
+
+.recent-post {
+    background-color: rgb(32, 32, 32);
+}
+
+.recent-single-post {
+    background-color: rgb(32, 32, 32);
+    width: 300px;
+    font-size: 14px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px dashed #303030;
+}
+
+.post-title {
+    text-decoration: none;
+    color: #959595;
+}
+
+.post-title:hover {
+    color: #f4645f;
+}
+
+.date {
+    color: #505050;
+}
+
+.tag-cloud {
+    background-color: rgb(32, 32, 32);
+}
+
+.tag-cloud a {
+    text-decoration: none;
+    color: #959595;
+    padding: 2px 7px;
+    border: 1px solid #303030;
+    background-color: rgb(32, 32, 32);
+}
+
+.tag-cloud a:hover {
+    background-color: #f4645f;
+    color: white;
+}
+
+hr {
+    border-top: 1px dashed #303030;
+    border-right-color: initial;
+    border-right-style: initial;
+    border-right-width: 0px;
+    border-bottom-color: initial;
+    border-bottom-style: initial;
+    border-bottom-width: 0px;
+    border-left-color: initial;
+    border-left-style: initial;
+    border-left-width: 0px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
+
+.friend-links {
+    width: 300px;
+}
+
+.friend-links a {
+    border: none;
+    color: #959595;
+    font-size: 14px;
+    padding: 2px 7px;
+    margin: 0 7px 7px 0;
+    display: inline-block;
+}
