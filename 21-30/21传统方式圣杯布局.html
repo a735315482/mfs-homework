@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pudim'21</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        .container {
+            /* height: 100px; */
+            padding: 0 100px;
+        }
+        
+        .main {
+            float: left;
+            background-color: lightpink;
+            width: 100%;
+        }
+        
+        .left {
+            float: left;
+            background-color: lightblue;
+            width: 100px;
+            margin-left: -100%;
+            position: relative;
+            left: -100px;
+        }
+        
+        .right {
+            float: left;
+            background-color: lightgreen;
+            width: 100px;
+            margin-left: -100px;
+            position: relative;
+            right: -100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            Main
+        </div>
+        <div class="left">
+            Left
+        </div>
+        <div class="right">
+            Right
+        </div>
+    </div>
+</body>
+
+</html>
