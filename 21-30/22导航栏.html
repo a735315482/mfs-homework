@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>22导航栏</title>
+    <style>
+        @keyframes list {
+            0% {
+                background-color: transparent;
+                height: 0px;
+            }
+            100% {
+                background-color: yellow;
+                height: 54px;
+            }
+        }
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            background: black;
+        }
+        
+        .footer {
+            height: 50px;
+            transition: all 1s;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        
+        footer:hover {
+            background-color: yellow;
+            color: black;
+        }
+        
+        .community {
+            font-size: 21px;
+            font-weight: 300;
+            position: relative;
+        }
+        
+        .ul-commu {
+            display: none;
+            list-style: none;
+            padding-left: 10px;
+            padding-top: 20px;
+            width: 100px;
+            overflow: hidden;
+        }
+        
+        .community:hover .ul-commu {
+            display: block;
+            position: absolute;
+            top: 5px;
+            color: black;
+            background-color: yellow;
+            animation: list 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <footer class="footer">
+        <div class="community">社区
+            <ul class="ul-commu">
+                <li>论坛</li>
+                <li>闯关任务</li>
+            </ul>
+
+        </div>
+    </footer>
+</body>
+
+</html>
