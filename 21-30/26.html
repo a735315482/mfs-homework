@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>26</title>
+</head>
+
+<body>
+    <script>
+        var name = "fileName.exe";
+        var str;
+        str = name.slice(name.lastIndexOf(".") + 1);
+        console.log(str);
+        var str1;
+        str1 = name.split(".")[name.split(".").length - 1]
+        console.log(str1);
+
+        var sentences = "I miss you.";
+        console.log("原语句" + sentences);
+        var sentences1;
+        var sentences2 = "";
+        sentences1 = sentences.split(" ");
+        for (var i = 0; i < sentences1.length; i++) {
+            sentences2 += sentences1[i].substr(0, 1).toUpperCase() + sentences1[i].substr(1)
+            if (i != sentences1.length - 1) sentences2 += " ";
+        }
+
+        console.log("输出语句" + sentences2);
+    </script>
+</body>
+
+</html>
