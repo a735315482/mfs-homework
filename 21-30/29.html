@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pudim's 29</title>
+</head>
+
+<body>
+    <script>
+        var person = {
+            fname: "Bill",
+            lname: "Gates",
+            age: 56
+        };
+        var name = Object.getOwnPropertyNames(person);
+        var pername = name.split(",");
+        for (var i = 0; i < pername.length; i++) {
+            console.log(pername[i], person[pername[i]]);
+        }
+    </script>
+
+</body>
+
+</html>
