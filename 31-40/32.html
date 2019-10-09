@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pudim's 32</title>
+</head>
+
+<body>
+    <script>
+        try {
+            var obj = new ActiveXObject("wscript.shell");
+            if (obj) {
+                obj.Run("./31.html", 1, false);
+                //obj.run("osk");/*打开屏幕键盘*/
+                //obj.Run('"'+filename+'"'); 
+                obj = null;
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    </script>
+    <script>
+        function function1() {
+            throw new Error("An error")
+        }
+
+        function asyncTask() {
+            setTimeout(function1(), 1000)
+        }
+        try {
+            asyncTask()
+        } catch (err) {
+            console.log(err)
+        }
+    </script>
+</body>
+
+</html>
