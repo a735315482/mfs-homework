@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>35</title>
+</head>
+
+<body>
+    <ul id="list"></ul>
+    <ul id="list2"></ul>
+    <ul id="list3"></ul>
+    <script>
+        var oUl = document.getElementById("list");
+        oUl.innerHTML = " <li>1</li><li>2</li>";
+    </script>
+    <script>
+        var oUl = document.getElementById("list2");
+        var newList = document.createElement("li");
+        newList.innerText = "1";
+        oUl.append(newList);
+        newList = document.createElement("li");
+        newList.innerText = "2";
+        oUl.append(newList);
+    </script>
+    <!-- <script>
+        var oUl = document.getElementById("list3");
+        var newList;
+        newList.innerHTML = " <li>1</li><li>2</li>";
+        oUl.append(newList);
+    </script> -->
+
+</body>
+
+</html>
