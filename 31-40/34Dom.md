@@ -15,7 +15,7 @@
     * 返回所有html内容
 
 1. innerHTML 和 outerHTML 有什么不同？
-    * outerHTML包括了元素标签等内容
+    * outerHTML包括了元素标签等内容。xxx.outerHTML=""是替换。xxx.innerHTML=""是添加
 
 1. 我们可以使用 document.write() 动态生成文档流吗？如何可以，如何操作？
     * 可以。
