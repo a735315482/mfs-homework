@@ -28,6 +28,7 @@
 
         ctx.lineWidth = 3;
         ctx.beginPath();
+        ctx.lineCap = "round";
         for (var i = 0; i < 12; i++) {
             var t = Math.PI / 6 * i;
             var x = 170 * Math.cos(t);
@@ -35,11 +36,12 @@
             ctx.moveTo(x, y);
             ctx.lineTo(0.91 * x, 0.91 * y);
         }
-        ctx.closePath();
         ctx.stroke();
+        ctx.closePath();
 
         ctx.lineWidth = 2;
         ctx.beginPath();
+        ctx.lineCap = "round";
         for (var i = 0; i < 60; i++) {
             var t = Math.PI / 30 * i;
             var x = 170 * Math.cos(t);
@@ -47,8 +49,8 @@
             ctx.moveTo(x, y);
             ctx.lineTo(0.95 * x, 0.95 * y);
         }
-        ctx.closePath();
         ctx.stroke();
+        ctx.closePath();
 
         function move() {
             // var ele = document.getElementById("clock");
@@ -56,7 +58,7 @@
             // ctx.strokeStyle = "black";
             // ctx.translate(200, 200);
             // ctx.save();
-            clearArcFun(0, 0, 143, ctx);
+            clearArcFun(0, 0, 155, ctx);
             ctx.strokeStyle = "black";
             ctx.save();
 
@@ -66,33 +68,45 @@
             var seconds = time.getSeconds();
 
             ctx.strokeStyle = "red"; //绘制秒针
-            ctx.lineWidth = 3;
+            ctx.lineWidth = 5;
             ctx.lineCap = "round";
             ctx.beginPath();
             var temps = Math.PI / 30 * (seconds - 15);
-            ctx.moveTo(-20 * Math.cos(temps), -20 * Math.sin(temps));
-            ctx.lineTo(140 * Math.cos(temps), 140 * Math.sin(temps));
-            ctx.closePath();
+            ctx.moveTo(-30 * Math.cos(temps), -30 * Math.sin(temps));
+            ctx.lineTo(124 * Math.cos(temps), 124 * Math.sin(temps));
             ctx.stroke();
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.arc(135 * Math.cos(temps), 135 * Math.sin(temps), 11, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.closePath();
             ctx.restore();
 
-            ctx.lineWidth = 6; //绘制时针
+            ctx.lineWidth = 10; //绘制时针
             ctx.lineCap = "round";
             ctx.beginPath();
             var temph = Math.PI / 6 * (hours - 3);
             ctx.moveTo(-10 * Math.cos(temph), -10 * Math.sin(temph));
             ctx.lineTo(80 * Math.cos(temph), 80 * Math.sin(temph));
-            ctx.closePath();
             ctx.stroke();
+            ctx.closePath();
 
-            ctx.lineWidth = 4; //绘制分针
-            ctx.lineCap = "round";
+            ctx.lineWidth = 8; //绘制分针
             ctx.beginPath();
             var tempm = Math.PI / 30 * (minutes - 15);
+            ctx.lineCap = "round";
             ctx.moveTo(-15 * Math.cos(tempm), -15 * Math.sin(tempm));
             ctx.lineTo(110 * Math.cos(tempm), 110 * Math.sin(tempm));
-            ctx.closePath();
             ctx.stroke();
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.strokeStyle = "red";
+            ctx.arc(0, 0, 4, 0, Math.PI * 2);
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.stroke();
+            ctx.closePath();
+
 
         }
 
