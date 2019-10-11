@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pudim's 36</title>
+</head>
+
+<body>
+    <canvas id="clock" width="400" height="400"></canvas>
+    <script>
+        var s = setInterval(move, 1000);
+        var ele = document.getElementById("clock");
+        var ctx = ele.getContext("2d");
+        ctx.strokeStyle = "black";
+        ctx.translate(200, 200);
+        ctx.save();
+
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "#0022cc";
+        ctx.beginPath();
+        ctx.arc(0, 0, 180, 0, Math.PI * 2)
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        for (var i = 0; i < 12; i++) {
+            var t = Math.PI / 6 * i;
+            var x = 170 * Math.cos(t);
+            var y = 170 * Math.sin(t);
+            ctx.moveTo(x, y);
+            ctx.lineTo(0.91 * x, 0.91 * y);
+        }
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        for (var i = 0; i < 60; i++) {
+            var t = Math.PI / 30 * i;
+            var x = 170 * Math.cos(t);
+            var y = 170 * Math.sin(t);
+            ctx.moveTo(x, y);
+            ctx.lineTo(0.95 * x, 0.95 * y);
+        }
+        ctx.closePath();
+        ctx.stroke();
+
+        function move() {
+            // var ele = document.getElementById("clock");
+            // var ctx = ele.getContext("2d");
+            // ctx.strokeStyle = "black";
+            // ctx.translate(200, 200);
+            // ctx.save();
+            clearArcFun(0, 0, 143, ctx);
+            ctx.strokeStyle = "black";
+            ctx.save();
+
+            var time = new Date();
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+
+            ctx.strokeStyle = "red"; //绘制秒针
+            ctx.lineWidth = 3;
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            var temps = Math.PI / 30 * (seconds - 15);
+            ctx.moveTo(-20 * Math.cos(temps), -20 * Math.sin(temps));
+            ctx.lineTo(140 * Math.cos(temps), 140 * Math.sin(temps));
+            ctx.closePath();
+            ctx.stroke();
+            ctx.restore();
+
+            ctx.lineWidth = 6; //绘制时针
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            var temph = Math.PI / 6 * (hours - 3);
+            ctx.moveTo(-10 * Math.cos(temph), -10 * Math.sin(temph));
+            ctx.lineTo(80 * Math.cos(temph), 80 * Math.sin(temph));
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.lineWidth = 4; //绘制分针
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            var tempm = Math.PI / 30 * (minutes - 15);
+            ctx.moveTo(-15 * Math.cos(tempm), -15 * Math.sin(tempm));
+            ctx.lineTo(110 * Math.cos(tempm), 110 * Math.sin(tempm));
+            ctx.closePath();
+            ctx.stroke();
+
+        }
+
+        function clearArcFun(x, y, r, cxt) { //(x,y)为要清除的圆的圆心，r为半径，cxt为context
+            var stepClear = 1; //别忘记这一步  
+            clearArc(x, y, r);
+
+            function clearArc(x, y, radius) {
+                var calcWidth = radius - stepClear;
+                var calcHeight = Math.sqrt(radius * radius - calcWidth * calcWidth);
+
+                var posX = x - calcWidth;
+                var posY = y - calcHeight;
+
+                var widthX = 2 * calcWidth;
+                var heightY = 2 * calcHeight;
+
+                if (stepClear <= radius) {
+                    cxt.clearRect(posX, posY, widthX, heightY);
+                    stepClear += 1;
+                    clearArc(x, y, radius);
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
