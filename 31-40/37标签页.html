@@ -124,18 +124,18 @@
             }
         }
 
-        var start = document.getElementById("start");
-        var stop = document.getElementById("stop");
+        var oStar = document.getElementById("start");
+        var oStop = document.getElementById("stop");
         var go;
         var once = 0;
-        start.onclick = function getAward() {
+        oStar.onclick = function getAward() {
             if (once == 0) {
                 go = setInterval(award, 100);
                 once = 1;
             }
 
         };
-        stop.onclick = function stop() {
+        oStop.onclick = function stop() {
             clearInterval(go);
             once = 0;
         };
