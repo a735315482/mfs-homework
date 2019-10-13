@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pudim's 38</title>
+    <link rel="stylesheet" href="style38.css">
+    <link rel="stylesheet" href="./38iconfont/iconfont.css">
+</head>
+
+<body>
+    <div class="banner"></div>
+    <div id="list" class="list"></div>
+    <div id="pager" class="pager"></div>
+    <script>
+        function createItem(no, title, clickTimes, replyTimes) {
+            var dom = document.createElement("div");
+            dom.setAttribute("class", "item");
+            var html = '<div class="no">' + no + '</div>' +
+                '<div class="title">' + title + '</div>' +
+                '<div class="info"><span class="iconfont icon-yanjing">' + clickTimes + '</span>' +
+                '<span class="iconfont icon-xiaoxi">' + replyTimes + '</span></div>' +
+                '<span class="iconfont icon-iconfront-"></span>';
+            dom.innerHTML = html;
+
+            return dom;
+        }
+
+
+        var data = [];
+        for (var i = 0; i < 100; i++) {
+            data.push({
+                no: i,
+                title: "标题" + i,
+                clickTimes: 10 * i % 30 + i % 10,
+                replyTimes: 2 * i % 10 + i % 5
+            });
+        }
+
+        for (let i = 0; i < 1.0 * data.length / 12; i++) {
+            var oPager = document.getElementById("pager");
+            var aa = document.createElement("a");
+            aa.setAttribute("href", "#");
+            aa.innerText = i + 1;
+            oPager.appendChild(aa);
+
+        }
+
+        function getData(page) {
+            return data.slice(page * 12, page * 12 + 12);
+        }
+
+        var oList = document.getElementById("list");
+
+        function fillDom(page) {
+            while (oList.hasChildNodes()) {
+                oList.removeChild(oList.firstChild);
+            }
+            var data = getData(page);
+            var doms = data.map(function(i) {
+                return createItem(i.no, i.title, i.clickTimes, i.replyTimes)
+            })
+            doms.forEach(function(i) {
+                oList.appendChild(i);
+            })
+        }
+        fillDom(0);
+
+        var pages = document.querySelectorAll(".pager a");
+        for (let i = 0; i < pages.length; i++) {
+            pages[i].addEventListener("click", function() {
+                fillDom(i);
+            })
+        }
+    </script>
+</body>
+
+
+</html>
