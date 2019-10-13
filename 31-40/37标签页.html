@@ -22,7 +22,7 @@
         .container {
             min-height: 100px;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 10px;
             background-color: rgb(171, 226, 245);
         }
         
@@ -33,6 +33,20 @@
         
         .hidden {
             display: none;
+        }
+        
+        .toptext {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .action {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .action button {
+            margin: 0 20px;
         }
     </style>
 </head>
@@ -50,8 +64,6 @@
     <script>
         var tables = document.getElementsByClassName("menue");
         var text = document.querySelectorAll(".container div");
-        console.log(tables);
-        console.log(text);
         for (var i = 0; i < tables.length; i++) {
             (function(i) {
                 tables[i].onclick = function() {
@@ -68,6 +80,68 @@
         }
         text[0].className = "";
     </script>
+
+    <div class="container">
+        <div class="toptext">
+            <div id="award">点击“开始“按钮，开始抽奖！</div>
+        </div>
+        <div class="action">
+            <button id="start">开 始</button>
+            <button id="stop">停 止</button>
+        </div>
+    </div>
+    <script>
+        function random() {
+            var m;
+            var ran = Math.random() * 100; //产生0 -99的随机数
+            if (ran >= 0 && ran < 10) m = 1;
+            else if (ran == 10) m = 0;
+            else if (ran > 10 && ran < 41) m = 2;
+            else if (ran >= 31 && ran < 81) m = 3;
+            else if (ran >= 81 && ran < 100) m = 4;
+            return m;
+        }
+        var content = document.getElementById("award");
+
+        function award() {
+            var choose = random();
+            switch (choose) {
+                case 0:
+                    content.innerHTML = "特等奖！";
+                    break;
+                case 1:
+                    content.innerHTML = "一等奖！";
+                    break;
+                case 2:
+                    content.innerHTML = "二等奖！";
+                    break;
+                case 3:
+                    content.innerHTML = "三等奖！";
+                    break;
+                case 4:
+                    content.innerHTML = "鼓励奖！";
+                    break;
+            }
+        }
+
+        var start = document.getElementById("start");
+        var stop = document.getElementById("stop");
+        var go;
+        var once = 0;
+        start.onclick = function getAward() {
+            if (once == 0) {
+                go = setInterval(award, 100);
+                once = 1;
+            }
+
+        };
+        stop.onclick = function stop() {
+            clearInterval(go);
+            once = 0;
+        };
+    </script>
+
+
 </body>
 
 </html>
