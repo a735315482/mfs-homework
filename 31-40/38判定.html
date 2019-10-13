@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pudim's 38</title>
+</head>
+
+<body>
+    <form id="signup" action="#" target="_blank" onsubmit="return onSignupFormSubmit()">
+        <p id="signup-error" style="color:red"></p>
+        <p>
+            用户名:
+            <input id="username" type="text" name="username"> 以字母开头，6-16个英文字符，数字或下划线
+        </p>
+        <p>
+            口令:
+            <input type="password" id="password" name="password">8-20个字符，英文字符，数字，下划线或特殊符号(@#$)
+        </p>
+        <p>
+            重复口令:
+            <input type="password" id="password-2">
+        </p>
+        <p>
+            <button type="submit">提交</button>
+            <button type="reset">重置</button>
+        </p>
+    </form>
+    <script>
+        function onSignupFormSubmit() {
+            var oUsername = document.getElementById("username");
+            var oPassword = document.getElementById("password");
+            var oPassword2 = document.getElementById("password-2");
+            var oSignup_error = document.getElementById("signup-error");
+
+            var username = oUsername.value;
+            var password = oPassword.value;
+            var password2 = oPassword2.value;
+
+            var reg = new RegExp(/^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){5,16}$/);
+            if (!reg.exec(username)) {
+                oSignup_error.innerText = "用户名格式不正确";
+                return false;
+            }
+
+            var reg2 = new RegExp(/^([a-zA-Z0-9]|[@#$]){8,20}$/);
+            if (!reg2.exec(password)) {
+                oSignup_error.innerText = "口令格式不正确";
+                return false;
+            }
+
+            if (password != password2) {
+                oSignup_error.innerText = "两次输入口令不一致";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
