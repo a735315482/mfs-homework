@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pudim's 40th</title>
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .container .header {
+            height: 120px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .container .header .title {
+            font-size: 28px;
+            color: black;
+            line-height: 120px;
+        }
+        
+        .container .content .goods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 -15px;
+        }
+        
+        .container .content .goods .item {
+            width: 160px;
+            height: 200px;
+            margin: 0 15px 10px;
+            position: relative;
+            line-height: 200px;
+            background-color: lightyellow;
+            font-size: 22px;
+        }
+        
+        .container .content .goods .item button {
+            position: absolute;
+            bottom: 15px;
+            left: 40px;
+        }
+        
+        .container .content #cart {
+            height: 80px;
+            padding: 0 20px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="header">
+            <div class="title">购物网</div>
+        </header>
+        <div class="content">
+            <div class="goods">
+                <div class="item">
+                    <div class="good">商品0</div><button>加入购物车</button></div>
+                <div class="item">
+                    <div class="good">商品1</div><button>加入购物车</button></div>
+                <div class="item">
+                    <div class="good">商品2</div><button>加入购物车</button></div>
+                <div class="item">
+                    <div class="good">商品3</div><button>加入购物车</button></div>
+                <div class="item">
+                    <div class="good">商品4</div><button>加入购物车</button></div>
+                <div class="item">
+                    <div class="good">商品5</div><button>加入购物车</button></div>
+                <div class="item">
+                    <div class="good">商品6</div><button>加入购物车</button></div>
+                <div class="item">
+                    <div class="good">商品7</div><button>加入购物车</button></div>
+                <div class="item">
+                    <div class="good">商品8</div><button>加入购物车</button></div>
+                <div class="item">
+                    <div class="good">商品9</div><button>加入购物车</button></div>
+            </div>
+            <div id="cart"></div>
+        </div>
+    </div>
+
+    <script>
+        var goods = document.querySelectorAll(".container .content .goods .item .good");
+        var btns = document.querySelectorAll(".container .content .goods .item button");
+        var oCart = document.getElementById("cart");
+        for (let i = 0; i < goods.length; i++) {
+            btns[i].addEventListener("click", function() {
+                oCart.innerHTML = oCart.innerHTML + goods[i].innerHTML;
+                document.cookie = "buy=" + oCart.innerHTML;
+            })
+        }
+
+        var buyStorage = document.cookie.split(";").map(function(i) {
+            return i.split("=")
+        }).filter(function(i) {
+            return i[0] == "buy"
+        })
+
+        if (buyStorage.length == 1) {
+            oCart.innerHTML = buyStorage[0][1];
+        }
+    </script>
+
+
+</body>
+
+</html>
