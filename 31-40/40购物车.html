@@ -77,25 +77,35 @@
         <div class="content">
             <div class="goods">
                 <div class="item">
-                    <div class="good">商品0</div><button>加入购物车</button></div>
+                    <div class="good">商品0</div><button>加入购物车</button>
+                </div>
                 <div class="item">
-                    <div class="good">商品1</div><button>加入购物车</button></div>
+                    <div class="good">商品1</div><button>加入购物车</button>
+                </div>
                 <div class="item">
-                    <div class="good">商品2</div><button>加入购物车</button></div>
+                    <div class="good">商品2</div><button>加入购物车</button>
+                </div>
                 <div class="item">
-                    <div class="good">商品3</div><button>加入购物车</button></div>
+                    <div class="good">商品3</div><button>加入购物车</button>
+                </div>
                 <div class="item">
-                    <div class="good">商品4</div><button>加入购物车</button></div>
+                    <div class="good">商品4</div><button>加入购物车</button>
+                </div>
                 <div class="item">
-                    <div class="good">商品5</div><button>加入购物车</button></div>
+                    <div class="good">商品5</div><button>加入购物车</button>
+                </div>
                 <div class="item">
-                    <div class="good">商品6</div><button>加入购物车</button></div>
+                    <div class="good">商品6</div><button>加入购物车</button>
+                </div>
                 <div class="item">
-                    <div class="good">商品7</div><button>加入购物车</button></div>
+                    <div class="good">商品7</div><button>加入购物车</button>
+                </div>
                 <div class="item">
-                    <div class="good">商品8</div><button>加入购物车</button></div>
+                    <div class="good">商品8</div><button>加入购物车</button>
+                </div>
                 <div class="item">
-                    <div class="good">商品9</div><button>加入购物车</button></div>
+                    <div class="good">商品9</div><button>加入购物车</button>
+                </div>
             </div>
             <div class="cart">
                 <div class="goodsName">
@@ -114,37 +124,40 @@
         var goods = document.querySelectorAll(".container .content .goods .item .good");
         var btns = document.querySelectorAll(".container .content .goods .item button");
         var oNamed = document.getElementById("named");
+        var oNum = document.getElementById("num");
 
         for (let i = 0; i < goods.length; i++) {
             btns[i].addEventListener("click", function() {
-                oNamed.innerHTML = goods[i].innerHTML;
-                document.cookie = "buy" + i + "=" + oNamed.innerHTML;
-
-                var numStorage = document.cookie.split(";").map(function(i) {
-                    return i.split("=");
-                }).filter(function(i) {
-                    return i[0] == "num" + i;
-                })
-                if (numStorage.length != 1) {
-                    document.cookie = "num" + i + "=" + 1;
+                if (localStorage.getItem('good' + i) == null) {
+                    localStorage.setItem("good" + i, goods[i].innerHTML + "</br>");
+                    localStorage.setItem('num' + i, 1 + "</br>");
+                    oNamed.innerHTML = oNamed.innerHTML + goods[i].innerHTML + "</br>";
+                    oNum.innerHTML = oNum.innerHTML + 1 + "</br>";
                 } else {
-                    var temp_num = numStorage[0][1] + 1;
-                    document.cookie = "num" + i + "=" + temp_num;
+                    var num = localStorage.getItem('num' + i);
+                    localStorage.setItem('num' + i, parseInt(num) + 1 + "</br>");
+                    oNamed.innerHTML = '';
+                    oNum.innerHTML = '';
+                    for (let j = 0; j < 10; j++) {
+                        if (localStorage.getItem('good' + j) != null) {
+
+                            oNamed.innerHTML = oNamed.innerHTML + localStorage.getItem('good' + j);
+                        }
+                        if (localStorage.getItem('num' + j) != null) {
+                            oNum.innerHTML = oNum.innerHTML + localStorage.getItem('num' + j);
+                        }
+                    }
                 }
 
             })
         }
 
         for (let j = 0; j < 10; j++) {
-            var buyStorage = document.cookie.split(";").map(function(i) {
-                return i.split("=");
-            }).filter(function(i) {
-                var buynum = "buy" + j
-                return i[0] == buynum;
-            })
-
-            if (buyStorage.length == 1) {
-                oNamed.innerHTML = oNamed.innerHTML + buyStorage[0][1];
+            if (localStorage.getItem('good' + j) != null) {
+                oNamed.innerHTML = oNamed.innerHTML + localStorage.getItem('good' + j);
+            }
+            if (localStorage.getItem('num' + j) != null) {
+                oNum.innerHTML = oNum.innerHTML + localStorage.getItem('num' + j);
             }
         }
     </script>
