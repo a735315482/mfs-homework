@@ -46,11 +46,25 @@
             left: 40px;
         }
         
-        .container .content #cart {
-            height: 80px;
+        .container .content .cart {
+            height: 100px;
+            width: 300px;
+            display: flex;
             padding: 0 20px;
             line-height: 30px;
         }
+        
+        .container .content .cart .goodsName {
+            width: 150px;
+        }
+        
+        .container .content .cart .goodsNum {
+            width: 150px;
+        }
+        
+        #named {}
+        
+        #num {}
     </style>
 </head>
 
@@ -83,29 +97,55 @@
                 <div class="item">
                     <div class="good">商品9</div><button>加入购物车</button></div>
             </div>
-            <div id="cart"></div>
+            <div class="cart">
+                <div class="goodsName">
+                    <div class="tit">商品名称</div>
+                    <div id="named"></div>
+                </div>
+                <div class="goodsNum">
+                    <div class="tit">数量</div>
+                    <div id="num"></div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
         var goods = document.querySelectorAll(".container .content .goods .item .good");
         var btns = document.querySelectorAll(".container .content .goods .item button");
-        var oCart = document.getElementById("cart");
+        var oNamed = document.getElementById("named");
+
         for (let i = 0; i < goods.length; i++) {
             btns[i].addEventListener("click", function() {
-                oCart.innerHTML = oCart.innerHTML + goods[i].innerHTML;
-                document.cookie = "buy=" + oCart.innerHTML;
+                oNamed.innerHTML = goods[i].innerHTML;
+                document.cookie = "buy" + i + "=" + oNamed.innerHTML;
+
+                var numStorage = document.cookie.split(";").map(function(i) {
+                    return i.split("=");
+                }).filter(function(i) {
+                    return i[0] == "num" + i;
+                })
+                if (numStorage.length != 1) {
+                    document.cookie = "num" + i + "=" + 1;
+                } else {
+                    var temp_num = numStorage[0][1] + 1;
+                    document.cookie = "num" + i + "=" + temp_num;
+                }
+
             })
         }
 
-        var buyStorage = document.cookie.split(";").map(function(i) {
-            return i.split("=")
-        }).filter(function(i) {
-            return i[0] == "buy"
-        })
+        for (let j = 0; j < 10; j++) {
+            var buyStorage = document.cookie.split(";").map(function(i) {
+                return i.split("=");
+            }).filter(function(i) {
+                var buynum = "buy" + j
+                return i[0] == buynum;
+            })
 
-        if (buyStorage.length == 1) {
-            oCart.innerHTML = buyStorage[0][1];
+            if (buyStorage.length == 1) {
+                oNamed.innerHTML = oNamed.innerHTML + buyStorage[0][1];
+            }
         }
     </script>
 
