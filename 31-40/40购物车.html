@@ -128,23 +128,23 @@
 
         for (let i = 0; i < goods.length; i++) {
             btns[i].addEventListener("click", function() {
-                if (localStorage.getItem('good' + i) == null) {
-                    localStorage.setItem("good" + i, goods[i].innerHTML + "</br>");
-                    localStorage.setItem('num' + i, 1 + "</br>");
+                if (sessionStorage.getItem('good' + i) == null) {
+                    sessionStorage.setItem("good" + i, goods[i].innerHTML + "</br>");
+                    sessionStorage.setItem('num' + i, 1 + "</br>");
                     oNamed.innerHTML = oNamed.innerHTML + goods[i].innerHTML + "</br>";
                     oNum.innerHTML = oNum.innerHTML + 1 + "</br>";
                 } else {
-                    var num = localStorage.getItem('num' + i);
-                    localStorage.setItem('num' + i, parseInt(num) + 1 + "</br>");
+                    var num = sessionStorage.getItem('num' + i);
+                    sessionStorage.setItem('num' + i, parseInt(num) + 1 + "</br>");
                     oNamed.innerHTML = '';
                     oNum.innerHTML = '';
                     for (let j = 0; j < 10; j++) {
-                        if (localStorage.getItem('good' + j) != null) {
+                        if (sessionStorage.getItem('good' + j) != null) {
 
-                            oNamed.innerHTML = oNamed.innerHTML + localStorage.getItem('good' + j);
+                            oNamed.innerHTML = oNamed.innerHTML + sessionStorage.getItem('good' + j);
                         }
-                        if (localStorage.getItem('num' + j) != null) {
-                            oNum.innerHTML = oNum.innerHTML + localStorage.getItem('num' + j);
+                        if (sessionStorage.getItem('num' + j) != null) {
+                            oNum.innerHTML = oNum.innerHTML + sessionStorage.getItem('num' + j);
                         }
                     }
                 }
@@ -153,11 +153,11 @@
         }
 
         for (let j = 0; j < 10; j++) {
-            if (localStorage.getItem('good' + j) != null) {
-                oNamed.innerHTML = oNamed.innerHTML + localStorage.getItem('good' + j);
+            if (sessionStorage.getItem('good' + j) != null) {
+                oNamed.innerHTML = oNamed.innerHTML + sessionStorage.getItem('good' + j);
             }
-            if (localStorage.getItem('num' + j) != null) {
-                oNum.innerHTML = oNum.innerHTML + localStorage.getItem('num' + j);
+            if (sessionStorage.getItem('num' + j) != null) {
+                oNum.innerHTML = oNum.innerHTML + sessionStorage.getItem('num' + j);
             }
         }
     </script>
