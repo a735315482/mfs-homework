@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>42</title>
+</head>
+
+<body>
+    原网页
+    <script>
+        function printout(text) {
+            console.log(text);
+        }
+
+        function getItems(callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", "/json", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    callback(xhr.responseText)
+                }
+            }
+            xhr.send();
+        }
+        getItems(printout);
+    </script>
+</body>
+
+</html>
