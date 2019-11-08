@@ -38,6 +38,6 @@ URL是相对于当前页面的路径，也可以使用绝对路径
 |---|---|
 |pageSize|默认值 30（最大200），每一页的新闻条目数|
 |page|默认 1，请求的页数|
-
-* ![img](../picture/42_1.jpg)
-* ![img](../picture/42_2.jpg)
+* [Link](42AJAX.html)
+![img](42_1.jpg)
+![img](42_2.jpg)
