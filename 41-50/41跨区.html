@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>41跨区</title>
+</head>
+
+<body>
+    这是本来的网页
+    <iframe src="http://www.a.com:8000/36.html" frameborder="0"></iframe>
+
+    <script>
+        document.domain = "a.com";
+        setTimeout(function() {
+            console.log(window.frames[0].document.getElementById("clock"));
+        }, 1000)
+    </script>
+</body>
+
+</html>
