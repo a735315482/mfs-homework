@@ -85,7 +85,7 @@
             ctx.lineWidth = 10; //绘制时针
             ctx.lineCap = "round";
             ctx.beginPath();
-            var temph = Math.PI / 6 * (hours - 3);
+            var temph = Math.PI / 6 * (hours - 3) + Math.PI / 6 / 60 * minutes;
             ctx.moveTo(-10 * Math.cos(temph), -10 * Math.sin(temph));
             ctx.lineTo(80 * Math.cos(temph), 80 * Math.sin(temph));
             ctx.stroke();
