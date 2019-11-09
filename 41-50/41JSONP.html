@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSONP</title>
+</head>
+
+<body>
+    <div id="father"></div>
+    <script>
+        function callback(res) {
+            console.log(res);
+            var ele1 = res.参数1;
+            var ele2 = res.参数2;
+            var ele3 = res.参数3;
+            var p = document.createElement("p");
+            var text = ele1 + " " + ele2 + " " + ele3;
+            document.getElementById("father").appendChild(p);
+            p.innerHTML = text;
+        }
+        var script = document.createElement('script');
+        script.src = 'http://www.b.com:8000/41data.js';
+        document.body.insertBefore(script, document.body.firstChild);
+    </script>
+
+</body>
+
+</html>
