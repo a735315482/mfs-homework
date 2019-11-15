@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        str = "http://work.mafengshe.com:80/question/details?id=24#somehash";
+
+        function parseURL(str) {
+            var reg1 = new RegExp(".*(?=://)");
+            var protocol = str.match(reg1);
+
+            var reg2 = new RegExp("(?<=://).*?(?=/)")
+            var host = str.match(reg2);
+
+            var reg6 = new RegExp("(?<=:).*");
+            var port = host[0].match(reg6);
+
+            var reg3 = new RegExp(".*(?=:)");
+            var hostname = host[0].match(reg3);
+
+            var str1 = str.split("?")[0];
+            var reg4 = new RegExp("(?<=//).*");
+            var pathname0 = str1.match(reg4);
+            var reg7 = new RegExp("(?<=/).*")
+            var pathname = pathname0[0].match(reg7);
+
+            var reg5 = new RegExp("(?<=#).*");
+            var hash = str.match(reg5);
+
+            var str2 = str.split("#")[0];
+            var reg6 = new RegExp("(?<=id).*");
+            var query = str2.match(reg6);
+
+            try {
+                var printout = {
+                    "protocol": protocol[0],
+                    "host": host[0],
+                    "port": port[0],
+                    "hostname": hostname[0],
+                    "pathname": "/" + pathname[0],
+                    "hash": "#" + hash[0],
+                    "query": "id" + query[0]
+                }
+            } catch (e) {
+                var printout = {
+                    "protocol": protocol,
+                    "host": host,
+                    "port": port,
+                    "hostname": hostname,
+                    "pathname": "/" + pathname,
+                    "hash": "#" + hash,
+                    "query": "id" + query
+                }
+            }
+
+
+            return printout;
+        }
+        console.log(parseURL(str));
+    </script>
+</body>
+
+</html>
