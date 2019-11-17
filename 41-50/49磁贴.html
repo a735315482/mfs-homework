@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>磁贴</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+
+    <style>
+        .top {
+            height: 40px;
+        }
+        
+        .nav {
+            width: 1000px;
+            height: 50px;
+            background-color: yellow;
+            margin: 0 auto;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        .fixed {
+            position: fixed;
+        }
+        
+        .body {
+            width: 1000px;
+            height: 2000px;
+            background-color: gray;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top"></div>
+    <div class="nav"></div>
+    <div class="body"></div>
+
+    <script>
+        window.onscroll = function() {
+            if (window.scrollY > 40)
+                $(".nav").addClass("fixed");
+            else
+                $(".nav").removeClass("fixed");
+        }
+    </script>
+
+</body>
+
+</html>
